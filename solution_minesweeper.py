@@ -23,7 +23,7 @@ def count_neighbouring_mines(board: list) -> list:
     count_mines = 0 #Iniciamos el contador para guardar el registro de las minas alrededor de la posición
 
     #Creamos una matriz para calcular las 8 posiciones alrededor de una casilla
-    directions: [
+    directions = [
             (-1, -1), (-1, 0), (-1, 1),
             (0, -1),           (0, 1),
             (1, -1),  (1, 0),  (1, 1)
