@@ -12,6 +12,13 @@ def count_neighbouring_mines(board: list) -> list:
 
     #Implementacion
     
+    #Reemplazamos los 1 por 9 en el tablero
+    for i in range (len(board)):
+        for j in range (len(board[i])):
+            if board[i][j] == 1:
+                board[i][j] = 9
+
+        
     #Iniciamos el conteo de las minas en cada posición
     count_mines = 0 #Iniciamos el contador para guardar el registro de las minas alrededor de la posición
 
@@ -31,13 +38,9 @@ def count_neighbouring_mines(board: list) -> list:
 
                 #Validamos los bordes
                 if 0 <= new_i < len(board) and 0 <= new_j < len(board[i]):
-                    if board[new_i][new_j] == 1:
+                    if board[new_i][new_j] == 9:
                         count_mines += 1
-                        board[new_i][new_j] = 9
-
-
-
-    
+            board[i][j] = count_mines
     return board
     
 
