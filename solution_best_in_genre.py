@@ -30,11 +30,15 @@ def bestInGenre(genre: str) -> str:
         if genre.lower() in serie["genre"].lower():
             show_per_genre.append(serie)
     show_ranking = sorted(show_per_genre,
-                        key=lambda serie: serie["imdb_rating"],
-                        reverse=True)
-    for i in range(len(show_ranking)):   #Retornar en modo String
-        print(show_ranking[i]['name']," - ", show_ranking[i]['imdb_rating'])  
-    return "a"
+                        key=lambda serie: (-serie["imdb_rating"], serie['name'])  #Aquì organizamos en un nuevo arreglo la serie por orden descendiente de puntaje y ascendiente de nombre
+    )
+
+    #Convertimos el resultado en un string
+    result= ""
+    for i in range(len(show_ranking)):
+        result += (f"{show_ranking[i]['name']} - {show_ranking[i]['imdb_rating']}\n")
+    
+    return result
 
 
 genre = "drama"
