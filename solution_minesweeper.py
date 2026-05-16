@@ -1,3 +1,5 @@
+import copy
+
 def count_neighbouring_mines(board: list) -> list:
     """
     Counts neighbouring mines for each cell in a Minesweeper board.
@@ -8,36 +10,34 @@ def count_neighbouring_mines(board: list) -> list:
     or 9 if the cell contains a mine
     """
 
-    #Implementation
-    #Recorremos la matriz y reemplazamos los 1 por 9
-    for i in range (len(board)):
-        for j in range (len(board[i])):
-            if board[i][j] == 1:
-                board[i][j] = 9
+    #Implementacion
     
     #Iniciamos el conteo de las minas en cada posición
     count_mines = 0 #Iniciamos el contador para guardar el registro de las minas alrededor de la posición
+
+    #Creamos una matriz para calcular las 8 posiciones alrededor de una casilla
+    directions: [
+            (-1, -1), (-1, 0), (-1, 1),
+            (0, -1),           (0, 1),
+            (1, -1),  (1, 0),  (1, 1)
+    ]
+
     for i in range (len(board)):
         for j in range (len(board[i])):
-            if board[i-1][j-1] == 9 and board[i-1][j-1] != None:
-                count_mines = count_mines + 1
-            if board[i][j-1] == 9 and board[i][j-1] != None:
-                count_mines = count_mines + 1
-            if board[i+1][j-1] == 9 and board[i+1][j-1] != None:
-                count_mines = count_mines + 1
-            if board[i+1][j] == 9 and board[i+1][j] != None:
-                count_mines = count_mines + 1
-            if i+1 < len(board) and j+1 < len(board[i]) and board[i+1][j+1] == 9:
-                count_mines = count_mines + 1
-            if board[i][j+1] == 9 and i < len(board) and j+1 < len(board[i]):
-                count_mines = count_mines + 1
-            if board[i-1][j+1] == 9 and board[i-1][j+1] != None:
-                count_mines = count_mines + 1
-            if board[i-1][j] == 9 and board[i-1][j] != None:
-                count_mines = count_mines + 1
-        print(count_mines)        
-        board[i][j] = count_mines
-    print(board)
+
+            for x, y in directions:
+                new_i = i + x
+                new_j = j + y
+
+                #Validamos los bordes
+                if 0 <= new_i < len(board) and 0 <= new_j < len(board[i]):
+                    if board[new_i][new_j] == 1:
+                        count_mines += 1
+                        board[new_i][new_j] = 9
+
+
+
+    
     return board
     
 
