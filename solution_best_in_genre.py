@@ -41,6 +41,6 @@ def bestInGenre(genre: str) -> str:
     return result
 
 
-genre = "drama"
+genre = input("Ingrese el género que desea consultar: ")
 
 print(bestInGenre(genre))
