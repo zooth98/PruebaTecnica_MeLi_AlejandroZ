@@ -28,4 +28,16 @@ DB_FILES: _Carpeta donde se almacena los comandos para la resolución del ejerci
 DECISIONES TÉCNICAS IMPORTANTES:
  - Para el ejercicio No.2 : Guardar las series filtradas por el genero en un nuevo arreglo para lograr organizar ascendentemente por rating y descendentemente por nombre.
 
- - Para el ejercicio No.3 : 
+INSTRUCCIONES DE USO:
+
+Ejercicio 1:
+ En la línea 49, en la variable _Board_ , anexar la matriz tablero y ejecutar.
+ 
+Ejercicio 2: 
+En la consola, luego de la pregunta "Ingresa un género: ", escribes el género de acuerdo a lo géneros existentes en la API del reto.
+
+Ejercicio 3:
+Ejecutar consultas SQL de los diferentes archivos en MySQL. El orden de ejecución debe ser:
+ - schema.sql
+ - sample_data.sql
+ - aplicant.sql
