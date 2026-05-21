@@ -41,6 +41,24 @@ def bestInGenre(genre: str) -> str:
     return result
 
 
-genre = ""
+valid_genres = {
+    "Action",
+    "Adventure",
+    "Drama",
+    "Crime",
+    "Thriller",
+    "Horror",
+    "Comedy",
+    "Romance",
+    "Fantasy",
+    "Mystery"
+}
 
-print(bestInGenre(genre))
+while True:
+    genre = input("Ingrese el género: ")
+
+    if genre in valid_genres:
+        print(bestInGenre(genre))
+        break
+
+    print("Debe ingresar un género válido")
